@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lista de Cita Empleado</h1>
+<a href="{% url 'crear_cita_empleado' %}">Crear Cita Empleado</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Cita</th>
+        <th>Empleado</th>
+        <th>Acciones</th>
+    </tr>
+    {% for ce in cita_empleados %}
+    <tr>
+        <td>{{ ce.id }}</td>
+        <td>{{ ce.cita }}</td>
+        <td>{{ ce.empleado }}</td>
+        <td>
+            <a href="{% url 'editar_cita_empleado' ce.id %}">Editar</a> |
+            <a href="{% url 'eliminar_cita_empleado' ce.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

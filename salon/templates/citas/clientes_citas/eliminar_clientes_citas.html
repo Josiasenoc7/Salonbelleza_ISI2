@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Eliminar Clientes Citas</h1>
+<p>¿Estás seguro de eliminar la relación entre el cliente "{{ clientes_citas.cliente }}" y la cita "{{ clientes_citas.cita }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
+<a href="{% url 'lista_clientes_citas' %}">Cancelar</a>
+{% endblock %}

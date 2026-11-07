@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lista de Parámetros</h1>
+<a href="{% url 'crear_parametro' %}">Crear nuevo parámetro</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Valor</th>
+        <th>Descripción</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+    </tr>
+    {% for parametro in parametros %}
+    <tr>
+        <td>{{ parametro.id }}</td>
+        <td>{{ parametro.nombre }}</td>
+        <td>{{ parametro.valor }}</td>
+        <td>{{ parametro.descripcion }}</td>
+        <td>{{ parametro.activo }}</td>
+        <td>
+            <a href="{% url 'editar_parametro' parametro.id %}">Editar</a> |
+            <a href="{% url 'eliminar_parametro' parametro.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

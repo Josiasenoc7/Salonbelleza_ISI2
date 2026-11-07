@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Editar Cita Empleado</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Actualizar</button>
+</form>
+<a href="{% url 'lista_cita_empleado' %}">Volver a lista</a>
+{% endblock %}

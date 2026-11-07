@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lista de Detalles de Clientes Citas</h1>
+<a href="{% url 'crear_cliente_cita_detalle' %}">Crear Detalle</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Cita</th>
+        <th>Parámetro</th>
+        <th>Acciones</th>
+    </tr>
+    {% for detalle in cliente_cita_detalles %}
+    <tr>
+        <td>{{ detalle.id }}</td>
+        <td>{{ detalle.cliente }}</td>
+        <td>{{ detalle.cita }}</td>
+        <td>{{ detalle.parametro }}</td>
+        <td>
+            <a href="{% url 'editar_cliente_cita_detalle' detalle.id %}">Editar</a> |
+            <a href="{% url 'eliminar_cliente_cita_detalle' detalle.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
